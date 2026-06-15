@@ -9,9 +9,9 @@
     "start": "electron .",
     "uncap": "electron . --uncap",
     "debug": "electron . --diag",
-    "dist": "electron-builder",
-    "dist:win": "electron-builder --win",
-    "dist:mac": "electron-builder --mac"
+    "dist": "electron-builder --publish never",
+    "dist:win": "electron-builder --win --publish never",
+    "dist:mac": "electron-builder --mac --publish never"
   },
   "devDependencies": {
     "electron": "^42.4.0",
@@ -38,6 +38,7 @@
     "mac": {
       "category": "public.app-category.games",
       "icon": "blockedIcon.png",
+      "artifactName": "${productName}-${version}-${arch}.dmg",
       "target": [
         {
           "target": "dmg",
