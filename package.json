@@ -1,0 +1,56 @@
+{
+  "name": "blocked-client",
+  "productName": "Blocked Client",
+  "version": "1.0.0",
+  "description": "A bare-bones, performance-optimized bloxd.io client built with Electron.",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "uncap": "electron . --uncap",
+    "debug": "electron . --diag",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac"
+  },
+  "devDependencies": {
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.blocked.client",
+    "productName": "Blocked Client",
+    "icon": "blockedIcon.ico",
+    "files": [
+      "main.js",
+      "package.json",
+      "blockedIcon.ico",
+      "blockedIcon.png"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "blockedIcon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "category": "public.app-category.games",
+      "icon": "blockedIcon.png",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "identity": null
+    },
+    "dmg": {
+      "title": "Blocked Client"
+    }
+  }
+}
